@@ -7,63 +7,44 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <header>
-        <h1>Gestion de la bibliothèque</h1>
+<header>
+    <h1>Gestion de la bibliothèque</h1>
 
         <nav>
-            <a href="index.html">Dashboard</a>
-            <a href="livres.html">Livres</a>
-            <a href="membres.html">Membres</a>
-            <a href="emprunts.html">Emprunts</a>
+            <a class="" href="index.html">Dashboard</a>
+            <a class="" href="livres.html">Livres</a>
+            <a class="active" href="membres.html">Membres</a>
+            <a class="" href="auteurs.html">Auteurs</a>
+            <a class="" href="emprunts.html">Emprunts</a>
         </nav>
-    </header>
 
-    <main>
+</header>
+<main>
+    <section class="page-header">
+        <h2>Membres</h2>
+        <p>Gestion des adhérents</p>
+    </section>
 
-        <section class="page-header">
-            <h2>Membres</h2>
-            <p>Gestion des membres de la bibliothèque</p>
-        </section>
+    <section>
+        <h2 id="titre-form-membre">Ajouter un membre</h2>
+        <div id="message-membre" class="message"></div>
+        <form id="form-membre">
+            <input type="hidden" id="id-membre">
+            <input type="text" id="nom-membre" placeholder="Nom du membre" required>
+            <input type="text" id="contact-membre" placeholder="Contact" required>
+            <div class="actions">
+                <button type="submit" id="bouton-membre">Ajouter le membre</button>
+                <button type="button" class="secondary" id="annuler-membre" hidden>Annuler</button>
+            </div>
+        </form>
+    </section>
 
-        <section>
+    <section>
+        <h2>Liste des membres</h2>
+        <div id="liste-membres" class="table-container"></div>
+    </section>
 
-            <h2>Ajouter un membre</h2>
-
-            <div id="message-membre" class="message"></div>
-
-            <form id="form-membre">
-
-                <input
-                    type="text"
-                    id="nom-membre"
-                    placeholder="Nom du membre"
-                >
-
-                <input
-                    type="text"
-                    id="contact-membre"
-                    placeholder="Contact"
-                >
-
-                <button type="submit">
-                    Ajouter le membre
-                </button>
-
-            </form>
-
-        </section>
-
-        <section>
-
-            <h2>Liste des membres</h2>
-
-            <div id="liste-membres"></div>
-
-        </section>
-
-    </main>
-
-    <script src="script.js"></script>
+</main>
+<script src="script.js"></script>
 </body>
 </html>

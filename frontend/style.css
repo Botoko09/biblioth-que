@@ -1,14 +1,17 @@
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 html {
+    font-size: 16px;
     scroll-behavior: smooth;
 }
 
 body {
+    margin: 0;
+    padding: 0;
     font-family: Arial, sans-serif;
     background: #f4f4f4;
     color: #222;
@@ -24,6 +27,7 @@ header {
     z-index: 10;
     display: flex;
     gap: 25%;
+    border-radius: 0 0 20px 20px;
 }
 
 header h1 {
@@ -45,7 +49,8 @@ nav a {
     font-weight: bold;
 }
 
-nav a:hover {
+nav a:hover,
+nav a.active {
     text-decoration: underline;
 }
 
@@ -62,6 +67,10 @@ section {
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     min-height: 250px;
+}
+
+.page-header {
+    min-height: auto;
 }
 
 h2 {
@@ -109,14 +118,69 @@ button:hover {
     background: #444;
 }
 
-.recherche {
+button:disabled {
+    background: #aaa;
+    cursor: not-allowed;
+}
+
+button.danger {
+    background: #c00;
+}
+
+button.danger:hover {
+    background: #900;
+}
+
+button.success {
+    background: green;
+}
+
+button.success:hover {
+    background: #006b00;
+}
+
+button.secondary {
+    background: #666;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.recherche,
+.search {
     display: flex;
     gap: 10px;
     margin-bottom: 20px;
 }
 
-.recherche input {
+.recherche input,
+.search input {
     flex: 1;
+}
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 17px;
+}
+
+th,
+td {
+    padding: 15px 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background: #f4f4f4;
 }
 
 .livre,
@@ -155,6 +219,10 @@ button:hover {
     font-weight: bold;
 }
 
+.status {
+    font-weight: bold;
+}
+
 .en-retard {
     border-left: 5px solid #c00;
     background: #fff0f0;
@@ -173,6 +241,10 @@ button:hover {
     text-align: center;
 }
 
+.statistique span {
+    display: block;
+}
+
 .statistique strong {
     display: block;
     font-size: 32px;
@@ -185,31 +257,20 @@ button:hover {
     font-size: 18px;
 }
 
+.message.success {
+    color: green;
+}
+
+.message.error {
+    color: #c00;
+}
+
 .pagination {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 15px;
     margin-top: 20px;
-}
-
-@media (max-width: 700px) {
-    .statistiques {
-        grid-template-columns: 1fr;
-    }
-
-    .livre {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .recherche {
-        flex-direction: column;
-    }
-
-    nav {
-        gap: 15px;
-    }
 }
 
 .membre {
@@ -236,17 +297,45 @@ button:hover {
     min-height: 70px;
 }
 
-.membre-info {
+.emprunt-dates {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
     flex: 1;
 }
 
-
-
-
+.emprunt h3 {
+    margin: 0;
+}
 
 @media (max-width: 700px) {
-    .membre {
+    .statistiques {
+        grid-template-columns: 1fr;
+    }
+
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .livre,
+    .membre,
+    .emprunt {
         flex-direction: column;
         align-items: flex-start;
+    }
+
+    .recherche,
+    .search {
+        flex-direction: column;
+    }
+
+    nav {
+        gap: 15px;
+    }
+
+    section {
+        padding: 30px;
+        margin-bottom: 30px;
     }
 }

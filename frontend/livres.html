@@ -7,119 +7,56 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <header>
-        <h1>Gestion de la bibliothèque</h1>
+<header>
+    <h1>Gestion de la bibliothèque</h1>
 
         <nav>
-            <a href="index.html">Dashboard</a>
-            <a href="livres.html">Livres</a>
-            <a href="membres.html">Membres</a>
-            <a href="emprunts.html">Emprunts</a>
+            <a class="" href="index.html">Dashboard</a>
+            <a class="active" href="livres.html">Livres</a>
+            <a class="" href="membres.html">Membres</a>
+            <a class="" href="auteurs.html">Auteurs</a>
+            <a class="" href="emprunts.html">Emprunts</a>
         </nav>
-    </header>
 
-    <main>
+</header>
+<main>
+    <section class="page-header">
+        <h2>Livres</h2>
+        <p>Gestion des livres</p>
+    </section>
 
-        <section class="page-header">
-            <h2>Livres</h2>
-            <p>Gestion des livres et des auteurs</p>
-        </section>
-
-        <section>
-            <h2>Ajouter un auteur</h2>
-
-            <div id="message-auteur" class="message"></div>
-
-            <form id="form-auteur">
-
-                <input
-                    type="text"
-                    id="nom-auteur"
-                    placeholder="Nom de l'auteur"
-                >
-
-                <input
-                    type="text"
-                    id="nationalite-auteur"
-                    placeholder="Nationalité"
-                >
-
-                <button type="submit">
-                    Ajouter l'auteur
-                </button>
-
-            </form>
-        </section>
-
-        <section>
-            <h2>Ajouter un livre</h2>
-
-            <div id="message-livre" class="message"></div>
-
-            <form id="form-livre">
-
-                <input
-                    type="text"
-                    id="titre-livre"
-                    placeholder="Titre du livre"
-                >
-
-                <select id="auteur-livre">
-                    <option value="">Choisir un auteur</option>
-                </select>
-
-                <input
-                    type="number"
-                    id="annee-livre"
-                    placeholder="Année de publication"
-                >
-
-                <button type="submit">
-                    Ajouter le livre
-                </button>
-
-            </form>
-        </section>
-
-        <section>
-            <h2>Liste des livres</h2>
-
-            <div class="recherche">
-
-                <input
-                    type="text"
-                    id="recherche-livre"
-                    placeholder="Rechercher par titre ou auteur"
-                >
-
-                <button onclick="chargerLivres()">
-                    Rechercher
-                </button>
-
+    <section>
+        <h2 id="titre-form-livre">Ajouter un livre</h2>
+        <div id="message-livre" class="message"></div>
+        <form id="form-livre">
+            <input type="hidden" id="id-livre">
+            <input type="text" id="titre-livre" placeholder="Titre du livre" required>
+            <select id="auteur-livre" required>
+                <option value="">Choisir un auteur</option>
+            </select>
+            <input type="number" id="annee-livre" placeholder="Année de publication" min="0" required>
+            <div class="actions">
+                <button type="submit" id="bouton-livre">Ajouter le livre</button>
+                <button type="button" class="secondary" id="annuler-livre" hidden>Annuler</button>
             </div>
+        </form>
+    </section>
 
-            <div id="liste-livres"></div>
+    <section>
+        <h2>Liste des livres</h2>
+        <div class="search">
+            <input type="search" id="recherche-livre" placeholder="Rechercher par titre ou auteur">
+            <button type="button" id="bouton-recherche">Rechercher</button>
+        </div>
+        <div id="liste-livres" class="table-container"></div>
+        <div class="pagination">
+            <button type="button" id="precedent">Précédent</button>
+            <span id="numero-page">Page 1</span>
+            <button type="button" id="suivant">Suivant</button>
+        </div>
+    </section>
 
-            <div class="pagination">
-
-                <button onclick="pagePrecedente()">
-                    Précédent
-                </button>
-
-                <span id="numero-page">
-                    Page 1
-                </span>
-
-                <button onclick="pageSuivante()">
-                    Suivant
-                </button>
-
-            </div>
-        </section>
-
-    </main>
-
-    <script src="script.js"></script>
+</main>
+<script src="script.js"></script>
 </body>
 </html>
